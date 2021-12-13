@@ -1,0 +1,41 @@
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  width: 34px;
+  text-align: center;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* 清除浮动，boardrow被内部元素撑开 */
+.BoardRow::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+
+  .game-info {
+    margin-left: 10px;
+
+    .status {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    ol {
+      padding-left: 15px;
+    }
+  }
+}
