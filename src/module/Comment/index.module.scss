@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .contain-box {
+    margin-top: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 600px;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    justify-content: center;
+
+    .input {
+      width: 400px;
+    }
+  }
+}
