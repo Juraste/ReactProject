@@ -1,0 +1,26 @@
+.wrapper{
+    min-height: 80px;
+    width: 520px;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    margin: 0 auto;
+    padding: 10px;   
+
+    .names{
+        margin-right:10px;
+        max-width: 80px;
+        
+        span{
+            // max-width: 80px;
+            color: #00a3cf;
+            font-style: italic;
+            // word-wrap: normal;    
+        }
+    }
+
+    .comment{
+        max-width: 410px;
+        word-wrap: normal;
+        overflow-y: visible;
+    }
+}

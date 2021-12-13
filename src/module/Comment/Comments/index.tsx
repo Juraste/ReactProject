@@ -2,16 +2,16 @@ import React from "react";
 import styles from "./index.module.scss";
 
 interface CommentProps {
-  userName: string;
-  commentText: string;
+  userName: string | undefined;
+  commentText: string | undefined;
 }
-
 const Comments = (props: CommentProps) => {
   const { userName, commentText } = props;
   return (
-    <div>
-      <div>{userName}</div>
-      <div>`: ${commentText}`</div>
+    <div className={styles.wrapper}>
+      <div className={styles.names}>
+        <span>{userName}</span> : </div>
+      <div className={styles.comment}>{commentText}</div>
     </div>
   );
 };

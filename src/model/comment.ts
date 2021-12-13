@@ -1,12 +1,16 @@
+export interface comment{
+    userName: string | undefined;
+    commentText: string | undefined;
+}
 
 type State = {
-    userName: string | null;
-    commentText: string | null;
+    comments: comment[],
+    commentId: number
 }
 
 const initialState: State={
-    userName: null,
-    commentText: null
+    comments: [],
+    commentId: -1
 }
 
 

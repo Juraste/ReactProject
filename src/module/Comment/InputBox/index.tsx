@@ -1,18 +1,26 @@
 import React, { FC, useRef } from "react";
-import { Dispatch } from "../../../store";
-import { useDispatch } from "react-redux";
+import { Dispatch, RootState } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.scss";
+import { comment } from "../../../model/comment";
+
 
 const InputBox = () => {
   const userRef = useRef<HTMLInputElement>(null);
   const commentRef = useRef<HTMLTextAreaElement>(null);
 
+  const { comments, commentId } = useSelector((selector: RootState) => selector.comment);
   const { updateState } = useDispatch<Dispatch>().comment;
 
   const submit = () => {
-    updateState({
+    const temp: comment = {
       userName: userRef.current?.value,
       commentText: commentRef.current?.value
+    };
+    comments.push(temp)
+    updateState({
+      comments: comments,
+      commentId: commentId + 1
     })
   };
   return (
