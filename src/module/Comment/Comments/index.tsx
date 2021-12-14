@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./index.module.scss";
+import React from 'react';
+import styles from './index.module.scss';
 
 interface CommentProps {
   userName: string | undefined;
@@ -7,10 +7,12 @@ interface CommentProps {
 }
 const Comments = (props: CommentProps) => {
   const { userName, commentText } = props;
+  console.log(props);
   return (
     <div className={styles.wrapper}>
       <div className={styles.names}>
-        <span>{userName}</span> : </div>
+        <span>{userName}</span> :{' '}
+      </div>
       <div className={styles.comment}>{commentText}</div>
     </div>
   );

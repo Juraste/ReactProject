@@ -23,6 +23,10 @@ const InputBox = () => {
       comments: comments,
       commentId: commentId + 1
     });
+    if (userRef.current && commentRef.current) {
+      userRef.current.value = '';
+      commentRef.current.value = '';
+    }
   };
   return (
     <section className={styles.wrapper}>
