@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
 import InputBox from "./InputBox/index";
-import Comments from './Comments'
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 import CommentList from "./CommentList";
 
 const CommentApp = () => {

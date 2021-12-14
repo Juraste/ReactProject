@@ -1,0 +1,122 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "project": "./tsconfig.json"
+    },
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "jest": true,
+      "node": true
+    },
+    "settings": {
+      "react": { "version": "detect" },
+      // TS Support with Airbnb which use plugin-import
+      "import/extensions": [".js", ".mjs", ".jsx", ".ts", ".tsx"],
+      "import/resolver": {
+        "typescript": {
+          "project": ["tsconfig.json", "apps/*/tsconfig.json"]
+        }
+      }
+    },
+    "plugins": ["@typescript-eslint", "@nrwl/nx"],
+    "extends": [
+      "airbnb",
+      "airbnb/hooks",
+      // TS Support with Airbnb which use plugin-import
+      "plugin:import/typescript",
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "prettier/@typescript-eslint",
+      "prettier/react"
+    ],
+    "rules": {
+      "callback-return":"off",
+      /** TS Support with Airbnb which use plugin-import */
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "mjs": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
+      "react/jsx-filename-extension": [
+        "error",
+        { "extensions": [".jsx", ".tsx"] }
+      ],
+  
+      // TODO: 讨论: practice and a11y
+      "no-nested-ternary": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off", // 返回的如果是复杂对象需定义一次返回类型
+      "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }], // BTW：Airbnb提倡原生数组的遍历方法，不提倡使用loops，而一元操作符一般常见于loop中
+      "react/no-array-index-key": "off",
+      // "import/no-cycle": "off", // use import/cycle exclude types： https://github.com/benmosher/eslint-plugin-import/issues/1453#issuecomment-677961846
+      // "react/jsx-props-no-spreading": "off",
+  
+      // remove for...of... cause some debates: https://github.com/airbnb/javascript/issues/1271
+      "no-restricted-syntax": [
+        "error",
+        {
+          "selector": "ForInStatement",
+          "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array."
+        },
+        {
+          "selector": "LabeledStatement",
+          "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+        },
+        {
+          "selector": "WithStatement",
+          "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+        }
+      ],
+  
+      "@nrwl/nx/enforce-module-boundaries": [
+        "error",
+        {
+          "enforceBuildableLibDependency": true,
+          "allow": [],
+          "depConstraints": [
+            {
+              "sourceTag": "*",
+              "onlyDependOnLibsWithTags": ["*"]
+            }
+          ]
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": ["**/*.tsx"],
+        "rules": {
+          // disabled, related https://github.com/yannickcr/eslint-plugin-react/issues/2353#issuecomment-650790793
+          "react/prop-types": "off",
+          "react/require-default-props": "off",
+  
+          // TODO: 讨论
+          "react/jsx-props-no-spreading": [
+            "error",
+            {
+              "custom": "ignore",
+              "explicitSpread": "ignore"
+            }
+          ]
+        }
+      },
+      {
+        // IMP: service model需要忽略某些规则
+        "files": ["apps/**/services/model/*.ts"],
+        "rules": {
+          "@typescript-eslint/no-empty-interface": "off"
+        }
+      }
+    ]
+  }
+  

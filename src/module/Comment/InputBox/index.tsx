@@ -1,15 +1,16 @@
-import React, { FC, useRef } from "react";
-import { Dispatch, RootState } from "../../../store";
-import { useDispatch, useSelector } from "react-redux";
-import styles from "./index.module.scss";
-import { comment } from "../../../model/comment";
-
+import React, { useRef } from 'react';
+import { Dispatch, RootState } from '../../../store';
+import { useDispatch, useSelector } from 'react-redux';
+import styles from './index.module.scss';
+import { comment } from '../../../model/comment';
 
 const InputBox = () => {
   const userRef = useRef<HTMLInputElement>(null);
   const commentRef = useRef<HTMLTextAreaElement>(null);
 
-  const { comments, commentId } = useSelector((selector: RootState) => selector.comment);
+  const { comments, commentId } = useSelector(
+    (selector: RootState) => selector.comment
+  );
   const { updateState } = useDispatch<Dispatch>().comment;
 
   const submit = () => {
@@ -17,19 +18,19 @@ const InputBox = () => {
       userName: userRef.current?.value,
       commentText: commentRef.current?.value
     };
-    comments.push(temp)
+    comments.push(temp);
     updateState({
       comments: comments,
       commentId: commentId + 1
-    })
+    });
   };
   return (
     <section className={styles.wrapper}>
-      <div className={styles["input-box"]}>
+      <div className={styles['input-box']}>
         <div className={styles.names}>用户名： </div>
         <input ref={userRef} type="text"></input>
       </div>
-      <div className={styles["input-box"]}>
+      <div className={styles['input-box']}>
         <div className={styles.names}>评论内容： </div>
         <textarea ref={commentRef}></textarea>
       </div>
