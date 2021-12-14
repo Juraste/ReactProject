@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 export interface comment{
     userName: string | undefined;
     commentText: string | undefined;
