@@ -1,0 +1,22 @@
+.wrapper {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    min-width: 230px;
+    max-width: 550px;
+    margin: 0 auto;
+
+
+    .title {
+        font-weight: 100;
+        text-align: center;
+        color: rgba(175, 47, 47, 0.15);
+        font-size: 100px;
+    }
+
+    .main {
+        background: #fff;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
+    }
+}

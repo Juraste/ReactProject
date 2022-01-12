@@ -24,7 +24,7 @@
       }
     },
     "rules": {
-      "callback-return":"off",
+      "callback-return":"off"
     },
 
     "overrides": [

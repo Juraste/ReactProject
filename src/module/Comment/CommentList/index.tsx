@@ -15,6 +15,7 @@ const CommentList = () => {
             key={index}
             userName={item.userName}
             commentText={item.commentText}
+            commentTime={item.createdTime}
           />
         );
       })}

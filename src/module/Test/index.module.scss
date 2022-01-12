@@ -1,0 +1,47 @@
+.class1 {
+    width: 500px;
+    height: 500px;
+    float: left;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    // margin: auto auto;
+    background-color: darkslateblue;
+    text-align: center;
+
+    .class2 {
+        width: 300px;
+        height: 300px;
+        margin: 100px;
+        background-color: darkseagreen;
+        // overflow: hidden;
+
+
+        .class3 {
+            // position: absolute;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 100px;
+            background-color: blanchedalmond;
+        }
+    }
+}
+
+.class4 {
+    width: 600px;
+    height: 300px;
+    background-color: cadetblue;
+    text-align: center;
+    float: left;
+}
+
+.class5 {
+    width: 800px;
+    height: 400px;
+    background-color: cornflowerblue;
+    text-align: center;
+    float: left;
+}

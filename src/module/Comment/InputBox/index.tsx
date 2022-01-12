@@ -16,7 +16,9 @@ const InputBox = () => {
   const submit = () => {
     const temp: comment = {
       userName: userRef.current?.value,
-      commentText: commentRef.current?.value
+      commentText: commentRef.current?.value,
+      createdTime: Date.now(),
+      durationTime: 0
     };
     comments.push(temp);
     updateState({
